@@ -37,20 +37,27 @@ class ViewController: UIViewController {
             let bmi = weight/(height*height*0.0001)
             let shortendBmi = String(format: "%.1f", bmi)
             var body = ""
+            var color = UIColor.white
             
             if bmi > 35 {
                 body = "Extremely Obese"
+                color = UIColor(displayP3Red: 1.0, green: 0.0, blue: 0.0, alpha: 0.7)
             } else if bmi >= 30.0 && bmi < 34.9 {
                 body = "Obese"
+                color = UIColor(displayP3Red: 0.7, green: 0.0, blue: 0.0, alpha: 0.7)
             } else if bmi >= 25 && bmi < 29.9 {
                 body = "Overweight"
+                color = UIColor(displayP3Red: 0.5, green: 0.0, blue: 0.0, alpha: 0.7)
             } else if bmi >= 18.5 && bmi < 24.9 {
                 body = "Normal Weight"
+                color = UIColor(displayP3Red: 0.0, green: 0.5, blue: 0.0, alpha: 0.7)
             } else {
                 body = "Underweight"
+                color = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.5, alpha: 0.7)
             }
             
             lblResult.text = "BMI:\(shortendBmi), Result: \(body)"
+            lblResult.backgroundColor = color
         }
         
        
