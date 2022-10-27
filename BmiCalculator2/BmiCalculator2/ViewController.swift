@@ -9,8 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var lblHeight: UILabel!
-    @IBOutlet weak var lblWeight: UILabel!
+    
+    @IBOutlet var lblHeight: UITextField!
+    @IBOutlet var lblWeight: UITextField!
     @IBOutlet weak var lblResult: UILabel!
     @IBOutlet weak var lblImageView: UIImageView!
     
@@ -25,7 +26,11 @@ class ViewController: UIViewController {
     
     @IBAction func bmiBtn(_ sender: UIButton) {
         
-        if lblHeight.text != nil && lblWeight.text != nil {
+        if lblHeight.text == ""  || lblWeight.text == "" {
+            
+            lblResult.text = "Put your Data!"
+            
+        } else {
             
             let height = Double(lblHeight.text!)!
             let weight = Double(lblWeight.text!)!
@@ -46,9 +51,6 @@ class ViewController: UIViewController {
             }
             
             lblResult.text = "BMI:\(shortendBmi), Result: \(body)"
-            
-        } else {
-            lblResult.text = "Put your Data!"
         }
         
        
